@@ -3,23 +3,15 @@ import { Search, MapPin, Star, Scissors } from "lucide-react";
 import Image from "next/image";
 
 // Mock data (será substituído pelo Prisma futuramente)
-const MOCK_CATEGORIES = [
-  { id: "1", name: "Cabelos", icon: "💇‍♀️", color: "bg-pink-500/10 text-pink-600" },
-  { id: "2", name: "Unhas", icon: "💅", color: "bg-purple-500/10 text-purple-600" },
-  { id: "3", name: "Barbearia", icon: "💈", color: "bg-blue-500/10 text-blue-600" },
-];
+// const MOCK_CATEGORIES = [
+//   { id: "1", name: "Cabelos", icon: "💇‍♀️", color: "bg-pink-500/10 text-pink-600" },
+//   { id: "2", name: "Unhas", icon: "💅", color: "bg-purple-500/10 text-purple-600" },
+//   { id: "3", name: "Barbearia", icon: "💈", color: "bg-blue-500/10 text-blue-600" },
+// ];
 
 const MOCK_FEATURED_SALONS = [
   {
     id: "s1",
-    name: "Studio Elegance",
-    type: "Salão Misto",
-    rating: 4.8,
-    distance: "1.2 km",
-    image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=400&h=300"
-  },
-  {
-    id: "s2",
     name: "On Hair Studio",
     type: "Salão de Beleza",
     rating: 5,
@@ -34,23 +26,24 @@ export default function DashboardPage() {
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
 
       {/* Search Bar */}
-      <div className="relative">
+      {/*<div className="relative">
         <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
         <input
           type="text"
           placeholder="Buscar serviços, salões ou profissionais..."
           className="w-full h-14 pl-12 pr-4 bg-background border border-border/60 rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
         />
-      </div>
+      </div>/*}
 
       {/* Categories Horizontal Scroll */}
-      <section>
-        <div className="flex items-center justify-between mb-4">
+      {/*<section>
+        {<div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold tracking-tight">Especialidades</h2>
           <Link href="/dashboard/categories" className="text-sm font-medium text-primary hover:underline">
             Ver todas
           </Link>
-        </div>
+        </div>}
+
 
         <div className="flex gap-4 overflow-x-auto pb-4 pt-1 px-1 -mx-4 px-4 snap-x no-scrollbar">
           {MOCK_CATEGORIES.map((cat) => (
@@ -66,10 +59,10 @@ export default function DashboardPage() {
             </Link>
           ))}
         </div>
-      </section>
+      </section>*/}
 
       {/* Promo Banner */}
-      <section className="bg-gradient-to-br from-primary to-primary/80 rounded-3xl p-6 text-primary-foreground shadow-lg relative overflow-hidden">
+      {/*<section className="bg-gradient-to-br from-primary to-primary/80 rounded-3xl p-6 text-primary-foreground shadow-lg relative overflow-hidden">
         <div className="absolute right-0 top-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
         <div className="relative z-10 w-2/3">
           <h3 className="text-xl font-bold mb-2">Renove seu visual</h3>
@@ -79,13 +72,13 @@ export default function DashboardPage() {
           </Link>
         </div>
         <Scissors className="absolute right-4 bottom-4 w-20 h-20 text-white/10" />
-      </section>
+      </section>*/}
 
       {/* Featured Salons */}
       <section>
-        <div className="flex items-center justify-between mb-4">
+        {/*<div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold tracking-tight">Em destaque</h2>
-        </div>
+        </div>*/}
 
         <div className="flex flex-col gap-4">
           {MOCK_FEATURED_SALONS.map((salon) => (
@@ -96,12 +89,11 @@ export default function DashboardPage() {
             >
               <div className="h-40 sm:h-auto sm:w-1/3 relative overflow-hidden">
                 <Image
-                  src={salon.image}
-                  alt={salon.name}
-                  fill
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max width: 640px) 100vw, 33vw"
-                  priority={salon.id === "s2"} // nao sei se precisa, priority é prioridade de renderização
+                  src="/images/on-hair-studio.png"
+                  alt="On Hair Studio"
+                  layout="fill"
+                  objectFit="cover"
+                  className="w-full h-auto"
                 />
               </div>
 
